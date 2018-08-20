@@ -6,7 +6,6 @@
 package Lista3;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -39,7 +38,7 @@ public class Lis3EX4 {
     }
 
     // Sorteia os lugares que estarão disponiveis ou não, é executado somente uma vez.
-    public void predefiniLugares() throws IOException {
+    private void predefiniLugares() throws IOException {
 
         for (int i = 0; i < 5; i++) {
             int h = (int) (Math.random() * 2);
