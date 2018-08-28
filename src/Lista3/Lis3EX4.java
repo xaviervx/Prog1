@@ -14,17 +14,16 @@ import java.util.Scanner;
 import java.io.IOException;
 
 /**
- * @author Xavier;
- * Professora: Eliana;
- * Influencia: Danieis (existem vários);
- * ADS 14 2018;
- * Todos os direitos reservados ^-^
+ * @author Xavier; 
+ * Professora: Eliana; 
+ * Influencia: Danieis (existem vários); 
+ * ADS 14 2018; Todos os direitos reservados ^-^
  */
 public class Lis3EX4 {
 
     Scanner cs = new Scanner(System.in);
     BufferedReader lt = new BufferedReader(new InputStreamReader(System.in));
-    
+
     // Váriaveis Globais
     // x = Congonhas; 
     // z = Guarulhos;
@@ -32,37 +31,23 @@ public class Lis3EX4 {
     boolean[] z = new boolean[]{false, false, false, false, false};
 
     public static void main(String[] args) throws IOException {
-
         Lis3EX4 q = new Lis3EX4();
         q.predefiniLugares();
     }
 
     // Sorteia os lugares que estarão disponiveis ou não, é executado somente uma vez.
     private void predefiniLugares() throws IOException {
-
         for (int i = 0; i < 5; i++) {
             int h = (int) (Math.random() * 2);
-            if (h == 0) {
-                x[i] = false;
-            } else {
-                x[i] = true;
-            }
-        }
-
-        for (int i = 0; i < 5; i++) {
-            int h = (int) (Math.random() * 2);
-            if (h == 0) {
-                z[i] = false;
-            } else {
-                z[i] = true;
-            }
+            x[i] = h != 0;
+            int f = (int) (Math.random() * 2);
+            z[i] = f != 0;
         }
         imprimeLugares();
     }
 
     // Faz a impressão dos lugares de acordo com o sortei obtido no metodo "predefiniLugares".
     public void imprimeLugares() throws IOException {
-
         System.out.println("Congonhas");
         System.out.print("Lugares" + "\t");
 
@@ -142,7 +127,8 @@ public class Lis3EX4 {
     public String imprimeCartao(int a, int b) {
         boolean retorno = false;
         String resposta = "";
-//        Iportação e formatação de datas:
+
+        // Iportação e formatação de datas:
         Date data = new Date();
         SimpleDateFormat formatar = new SimpleDateFormat("dd/MM/yyyy");
         SimpleDateFormat formatar1 = new SimpleDateFormat("HH:mm:ss");
@@ -172,7 +158,7 @@ public class Lis3EX4 {
         }
         return resposta;
     }
-    
+
     // Percorre os dois vetores e verifica se todos os lugares estão ocupados.
     // Caso todos estejam ocupados a execução é encerrada.
     private void verifica() {
@@ -190,7 +176,7 @@ public class Lis3EX4 {
             }
         }
         if ((contx == 4) && (contz == 4)) {
-            System.out.println("\n\t\tVOOS LOTADOS!!\t\t");
+            System.out.println("\n\t\t\tVOOS LOTADOS!!\t\t");
             System.exit(0);
         }
     }

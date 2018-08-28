@@ -43,7 +43,6 @@ public class Lis4alEX1 {
                     + "\nquando somadas seja menor que 18.\n");
                     tudo();
         }
-
         int[][] a = new int[numeroLinhas_a][numeroColunas_a];
         int[][] b = new int[numeroLinhas_b][numeroColunas_b];
 
@@ -112,7 +111,26 @@ public class Lis4alEX1 {
                 System.out.print(c[i][j] + "\t");
             }
             System.out.println("");
+
+            // Criar novo metodo que efetue a multiplicação das Matrizes.
         }
-        System.exit(0);
+        teste(a, b, numeroLinhas_a, numeroColunas_b, numeroLinhas_b, numeroColunas_b);   
     }
+
+    private String[][] teste(int[][] a, int[][] b, int l_a, int c_a, int l_b, int c_b) {
+        String[][] h = new String[l_a][c_b];
+        int[][] bNovo = new int[c_a][l_b];
+        int linhas = 0;
+        int colunas = 0;
+        
+        System.out.println(b.length);
+        for (int i = 0; i < c_a; i++) {
+            for (int j = 0; j < l_a; j++) {
+                System.out.print(b[l_a][c_a] +"\t");
+            }
+            System.out.println("");
+        }
+       return h;
+    }
+
 }
