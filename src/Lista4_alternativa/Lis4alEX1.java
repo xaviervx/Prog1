@@ -5,7 +5,9 @@
  */
 package Lista4_alternativa;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Scanner;
 
 /**
@@ -14,12 +16,18 @@ import java.util.Scanner;
  */
 public class Lis4alEX1 {
 
+    BufferedReader lt = new BufferedReader(new InputStreamReader(System.in));
+
+    Scanner cs = new Scanner(System.in);
+
     public static void main(String[] args) throws IOException {
         Lis4alEX1 v = new Lis4alEX1();
-        v.tudo();
+        v.quaseTudo();
+
     }
 
-    public void tudo() throws IOException {
+    public void quaseTudo() throws IOException {
+        BufferedReader lt = new BufferedReader(new InputStreamReader(System.in));
 
         Scanner cs = new Scanner(System.in);
 
@@ -41,7 +49,12 @@ public class Lis4alEX1 {
         if ((numeroColunas_a + numeroColunas_b) > 17) {
             System.out.println("Informe uma quantidade de colunas para 'a' e 'b' que"
                     + "\nquando somadas seja menor que 18.\n");
-            tudo();
+            quaseTudo();
+        }
+        if (numeroColunas_a != numeroLinhas_b) {
+            System.out.println("Para que a operação seja possivél o número de"
+                    + "\ncolunas de 'A' deve ser igual ao número de linhas de 'B'.\n");
+            quaseTudo();
         }
         int[][] a = new int[numeroLinhas_a][numeroColunas_a];
         int[][] b = new int[numeroLinhas_b][numeroColunas_b];
@@ -55,25 +68,25 @@ public class Lis4alEX1 {
         for (int i = 0; i < numeroLinhas_a; i++) {
             for (int j = 0; j < numeroColunas_a; j++) {
                 a[i][j] = (int) (Math.random() * 51);
-                System.out.print(a[i][j] + "\t");
+                // Ativar caso queira que a Matriz "B" seja mostrada.System.out.print(a[i][j] + "\t");
             }
-            System.out.println("");
+            // Ativar caso queira que a Matriz "A" seja mostrada. System.out.println("");
         }
 
-        System.out.println("\n==================================================================="
-                + "=============================================================================\n");
-
+        // Atvar isso tambem caso queira. ("\n==================================================================="
+        //        + "=============================================================================\n");
         for (int i = 0; i < numeroLinhas_b; i++) {
             for (int j = 0; j < numeroColunas_b; j++) {
                 b[i][j] = (int) (Math.random() * 51);
-                System.out.print(b[i][j] + "\t");
+                // Ativar caso queira que a Matriz "B" seja mostrada.System.out.print(b[i][j] + "\t");
             }
-            System.out.println("");
+            // Ativar caso queira que a Matriz "B" seja mostrada. System.out.println("");
         }
 
         System.out.println("\n==================================================================="
                 + "=============================================================================\n");
-        // *Cometario a fazer
+
+        // Pondo a Matriz "A" dentor da "C".
         for (int i = 0; i < numeroLinhas_a; i++) {
             for (int j = 0; j < numeroColunas_a; j++) {
                 c[i][j] = "" + a[i][j];
@@ -89,8 +102,11 @@ public class Lis4alEX1 {
         //            k++;
         //        }
 
+        // Variaveis k e l usadas com um "for" mas que não deu certo com o "for"
         int k = 0;
         int l = 0;
+        // Pondo a Matriz "B" dentor da "C".
+        // Comblicado fazer isso. Caso alguém que esteja lendo saiba como melhorar, fique a vontado ^^.
         for (int i = 0; i < numeroLinhas_b; i++) {
             for (int j = numeroColunas_a + 1; j < (1 + (numeroColunas_a + numeroColunas_b)); j++) {
                 c[i][j] = "" + b[k][l];
@@ -99,7 +115,7 @@ public class Lis4alEX1 {
             k++;
             l = 0;
         }
-
+        // Inprssão da Matriz "C" na tela
         for (int i = 0; i < (maiorL); i++) {
             for (int j = 0; j < (1 + (numeroColunas_a + numeroColunas_b)); j++) {
                 if (j == (numeroColunas_a)) {
@@ -112,23 +128,39 @@ public class Lis4alEX1 {
             }
             System.out.println("");
 
-            // Criar novo metodo que efetue a multiplicação das Matrizes.
         }
-        // teste(a, b, numeroLinhas_a, numeroColunas_b, numeroLinhas_b, numeroColunas_b);   
+        System.out.println("\n==================================================================="
+                + "=============================================================================\n");
+
+        // Enviando váriaveis para o metodo.
+        teste(a, b, numeroLinhas_a, numeroColunas_a, numeroColunas_b);
     }
 
-    private String[][] teste(int[][] a, int[][] b, int l_a, int c_a, int l_b, int c_b) {
-        String[][] h = new String[l_a][c_b];
-        int[][] bNovo = new int[c_a][l_b];
+    // Metodo que realiza a multiplicação das marizes e exibe uma nova como resultado
+    private void teste(int[][] a, int[][] b, int l_a, int c_a, int c_b) throws IOException {
+        int[][] h = new int[l_a][c_b];
 
-        for (int i = 0; i < 10; i++) {
-            for (int j = 0; j < 10; j++) {
-                for (int k = 0; k < 10; k++) {
+        System.out.println("\nMultiplicação de A * B\n");
 
+        // i e j correspondem respectivamente a o Número de Linhas da Matriz "A" e 
+        // o Número de Colunas da Matriz "B"
+        // A costante k pode ser tanto c_a ou l_b;
+        for (int i = 0; i < l_a; i++) {
+            for (int j = 0; j < c_b; j++) {
+                for (int k = 0; k < c_a; k++) {
+                    h[i][j] += (a[i][k]) * (b[k][j]);
                 }
+                System.out.print(h[i][j] + "\t");
             }
+            System.out.println("\n");
         }
-        return null;
-
+        System.out.print("Deseja Realizar outra operação?\nY - Sim / N - Não: ");
+        if (lt.readLine().toUpperCase().equals("Y")) {
+            System.out.println("==================================================================="
+                    + "=============================================================================\n\n");
+            quaseTudo();
+        } else {
+            System.exit(0);
+        }
     }
 }
