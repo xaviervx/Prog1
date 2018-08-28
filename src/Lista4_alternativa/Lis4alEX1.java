@@ -41,7 +41,7 @@ public class Lis4alEX1 {
         if ((numeroColunas_a + numeroColunas_b) > 17) {
             System.out.println("Informe uma quantidade de colunas para 'a' e 'b' que"
                     + "\nquando somadas seja menor que 18.\n");
-                    tudo();
+            tudo();
         }
         int[][] a = new int[numeroLinhas_a][numeroColunas_a];
         int[][] b = new int[numeroLinhas_b][numeroColunas_b];
@@ -114,23 +114,21 @@ public class Lis4alEX1 {
 
             // Criar novo metodo que efetue a multiplicação das Matrizes.
         }
-        teste(a, b, numeroLinhas_a, numeroColunas_b, numeroLinhas_b, numeroColunas_b);   
+        // teste(a, b, numeroLinhas_a, numeroColunas_b, numeroLinhas_b, numeroColunas_b);   
     }
 
     private String[][] teste(int[][] a, int[][] b, int l_a, int c_a, int l_b, int c_b) {
         String[][] h = new String[l_a][c_b];
         int[][] bNovo = new int[c_a][l_b];
-        int linhas = 0;
-        int colunas = 0;
-        
-        System.out.println(b.length);
-        for (int i = 0; i < c_a; i++) {
-            for (int j = 0; j < l_a; j++) {
-                System.out.print(b[l_a][c_a] +"\t");
-            }
-            System.out.println("");
-        }
-       return h;
-    }
 
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                for (int k = 0; k < 10; k++) {
+
+                }
+            }
+        }
+        return null;
+
+    }
 }
