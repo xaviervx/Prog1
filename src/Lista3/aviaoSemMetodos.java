@@ -13,12 +13,8 @@ import java.util.Date;
 import java.util.Scanner;
 
 /**
- * @author Xavier;
- * Professora: Eliana;
- * Influencia: Danieis (existem vários);
- * ADS 14 2018;
- * Agora sem Metodos.
- * Todos os direitos reservados ^-^
+ * @author Xavier; Professora: Eliana; Influencia: Danieis (existem vários); ADS
+ * 14 2018; Agora sem Metodos. Todos os direitos reservados ^-^
  */
 public class aviaoSemMetodos {
 
@@ -35,11 +31,13 @@ public class aviaoSemMetodos {
 
         // x = Congonhas; 
         // z = Guarulhos;
-        boolean[] x = new boolean[]{false, false, false, false, false};
-        boolean[] z = new boolean[]{false, false, false, false, false};
+        boolean[] x = {false, false, false, false, false};
+        boolean[] z = {false, false, false, false, false};
 
         int contx1 = 0;
         int contz1 = 0;
+
+        int escolha = 0;
 
         while (true) {
             int contx = 0;
@@ -66,12 +64,24 @@ public class aviaoSemMetodos {
             contx = 0;
             contz = 0;
 
-            System.out.print("Escolha um voo (1 - Congonhas / 2 - Guarulhos / 3 - Cancelar): ");
+            if (escolha == 0) {
+                System.out.print("Escolha um voo (1 - Congonhas / 2 - Guarulhos / 3 - Cancelar): ");
+                escolha = cs.nextInt();
+            }
 
-            switch (cs.nextInt()) {
+            switch (escolha) {
                 case 1:
                     if (contx1 == 4) {
-                        System.out.println("\n\t\t\tVOO Lotado\n");
+                        resposta = "\n\t\t\tVOO Lotado\n";
+                        System.out.println(resposta);
+                        System.out.print("Quer para Guarulhos? (Y - Sim / N - Não) ");
+                        if (lt.readLine().toUpperCase().equals("Y")) {
+                            escolha = 2;
+                            break;
+                        } else {
+                            System.out.println("Obrigado por Usar nossos serviços.");
+                            System.exit(0);
+                        }
                     } else {
                         if (x[contx1] == true) {
                             resposta = "Lugar indisponivél";
@@ -90,7 +100,16 @@ public class aviaoSemMetodos {
                     break;
                 case 2:
                     if (contz1 == 4) {
-                        System.out.println("\n\t\t\tVOO Lotado\n");
+                        resposta = "\n\t\t\tVOO Lotado\n";
+                        System.out.println(resposta);
+                        System.out.print("Quer para Congonhas? (Y - Sim / N - Não) ");
+                        if (lt.readLine().toUpperCase().equals("Y")) {
+                            escolha = 1;
+                            break;
+                        } else {
+                            System.out.println("Obrigado por Usar nossos serviços.");
+                            System.exit(0);
+                        }
                     } else {
                         if (z[contz1] == true) {
                             resposta = "Lugar indisponivél";
@@ -114,7 +133,10 @@ public class aviaoSemMetodos {
                     System.out.println("\nVoo inexistente\n");
                     System.out.println("");
             }
-
+            if (resposta.equals("\n\t\t\tVOO Lotado\n")) {
+            } else {
+                escolha = 0;
+            }
         }
     }
 }
