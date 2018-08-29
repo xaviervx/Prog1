@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Lista4_alternativa;
+package Lista5;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -14,14 +14,14 @@ import java.util.Scanner;
  *
  * @author Xavier
  */
-public class Lis4alEX1 {
+public class Lis5EX1 {
 
     BufferedReader lt = new BufferedReader(new InputStreamReader(System.in));
 
     Scanner cs = new Scanner(System.in);
 
     public static void main(String[] args) throws IOException {
-        Lis4alEX1 v = new Lis4alEX1();
+        Lis5EX1 v = new Lis5EX1();
         v.quaseTudo();
 
     }
