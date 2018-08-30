@@ -163,4 +163,8 @@ public class Lis5EX1 {
             System.exit(0);
         }
     }
+
+    public void calculaTotalFatura() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
