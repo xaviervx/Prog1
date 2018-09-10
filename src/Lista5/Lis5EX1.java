@@ -46,7 +46,7 @@ public class Lis5EX1 {
         System.out.println("\n==================================================================="
                 + "=============================================================================\n");
 
-        if ((numeroColunas_a + numeroColunas_b) > 17) {
+        if ((numeroColunas_a + numeroColunas_b) > 20) {
             System.out.println("Informe uma quantidade de colunas para 'a' e 'b' que"
                     + "\nquando somadas seja menor que 18.\n");
             quaseTudo();
@@ -102,7 +102,7 @@ public class Lis5EX1 {
         //            k++;
         //        }
 
-        // Variaveis k e l usadas com um "for" mas que não deu certo com o "for"
+        // Variaveis k e l usadas como um "for" mas que não deu certo como o "for"
         int k = 0;
         int l = 0;
         // Pondo a Matriz "B" dentor da "C".
@@ -133,11 +133,11 @@ public class Lis5EX1 {
                 + "=============================================================================\n");
 
         // Enviando váriaveis para o metodo.
-        teste(a, b, numeroLinhas_a, numeroColunas_a, numeroColunas_b);
+        aVezesb(a, b, numeroLinhas_a, numeroColunas_a, numeroColunas_b);
     }
 
     // Metodo que realiza a multiplicação das marizes e exibe uma nova como resultado
-    private void teste(int[][] a, int[][] b, int l_a, int c_a, int c_b) throws IOException {
+    private void aVezesb(int[][] a, int[][] b, int l_a, int c_a, int c_b) throws IOException {
         int[][] h = new int[l_a][c_b];
 
         System.out.println("\nMultiplicação de A * B\n");
@@ -162,9 +162,5 @@ public class Lis5EX1 {
         } else {
             System.exit(0);
         }
-    }
-
-    public void calculaTotalFatura() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
