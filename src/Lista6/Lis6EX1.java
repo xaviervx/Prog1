@@ -5,35 +5,40 @@
  */
 package Lista6;
 
-import Lista6.Lis6EX1;
-import java.util.Scanner;
-
 /**
  *
  * @author Xavier
  */
 public class Lis6EX1 {
 
-    int quantidade = 0;
-    double preco = 0;
-
     public static void main(String[] args) {
-        Lis6EX1 i = new Lis6EX1();
-        i.dados();
-    }
+        String[] gabarito = {"A", "B", "C", "C", "A"};
+        String[][] respostas = new String[10][5];
 
-    public void dados() {
-        Scanner cs = new Scanner(System.in);
+        for (int i = 0; i < 10; i++) {
+            int passa = 0;
+            for (int j = 0; j < 5; j++) {
+                int resposta = (int) (Math.random() * 3);
+                if (resposta == 0) {
+                    respostas[i][j] = "A";
+                }
+                if (resposta == 1) {
+                    respostas[i][j] = "B";
+                }
+                if (resposta == 2) {
+                    respostas[i][j] = "C";
+                }
 
-        System.out.print("Quantidade do produto:\t");
-        quantidade = cs.nextInt();
-        System.out.print("Preço do produto:\t");
-        preco = cs.nextDouble();
-        System.out.println("Total:\t" + calculaTotalFatura(quantidade, preco));
-    }
+                if (respostas[i][j].equals(gabarito[j])) {
+                    passa++;
+                }
+            }
+            if (passa >= 3) {
+                System.out.println("Aluno " + (i + 1) + " aprovado.");
+            }else{
+                System.out.println("Aluno " + (i + 1) + " reprovado.");
+            }
 
-    public double calculaTotalFatura(int q, double p) {
-        double h = q * p;
-        return h;
+        }
     }
 }

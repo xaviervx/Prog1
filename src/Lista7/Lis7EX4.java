@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Lista6;
+package Lista7;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -14,7 +14,7 @@ import java.util.Scanner;
  *
  * @author Xavier
  */
-public class Lis6EX4 {
+public class Lis7EX4 {
 
     public static void main(String[] args) {
         Random ran = new Random();

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Lista6;
+package Lista7;
 
 import java.util.Scanner;
 
@@ -11,7 +11,7 @@ import java.util.Scanner;
  *
  * @author Xavier
  */
-public class Lis6EX5 {
+public class Lis7EX5 {
 //    Os quatro primeiros números perfeitos (6, 28, 496 e 8.128) 
     public static void main(String[] args) {
         Scanner cs = new Scanner(System.in);
