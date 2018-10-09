@@ -48,7 +48,7 @@ public class Lis6EX3 {
         // Atribuição manual de igualdade.
 //        for (int i = 0; i < 3; i++) {
 //            for (int j = 0; j < 3; j++) {
-//                matriz[i + 7][j + 7] = matriz2[i][j];
+//                matriz[i + 0][j + 7] = matriz2[i][j];
 //            }
 //        }
         vx.troca(matriz, matriz2);

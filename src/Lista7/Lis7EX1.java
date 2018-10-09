@@ -14,8 +14,8 @@ import java.util.Scanner;
  */
 public class Lis7EX1 {
 
-    int quantidade = 0;
-    double preco = 0;
+    int quantidade;
+    double preco;
 
     public static void main(String[] args) {
         Lis7EX1 i = new Lis7EX1();

@@ -119,9 +119,9 @@ public class inicio {
     public void jogada(String[][] jogo) {
         System.out.println("");
         System.out.println("Jogada");
-        System.out.print("Linha: ");
+        System.out.print("Linha:\t");
         l = converssao(cs.nextInt());
-        System.out.print("Coluna: ");
+        System.out.print("Coluna:\t");
         c = converssao(cs.nextInt());
         System.out.println("");
 
@@ -233,6 +233,7 @@ public class inicio {
 
                 // Bolinha no meio
                 if ((jogo[4][4]).equals("O")) {
+
                     if ((l + primeiraJogadaJogador[0] == 4 && c + primeiraJogadaJogador[1] == 4)) {
                         if ((l == 1 || l == 3) && (c == 1 || c == 3)) {
                             boolean posso = false;
@@ -353,50 +354,135 @@ public class inicio {
 
                         }
                     } else {
+
+                        boolean nada = true;
                         if (((l + c) == 3 || (l + c) == 5) || (l == 1 || l == 3) && (c == 1 || c == 3)) {
-                            boolean acabou = false;
-                            int lp;
-                            int cp; 
-                            while (!acabou) {
-                                 lp = (int) (Math.random() * 5) + 2;
-                                 cp = (int) (Math.random() * 5) + 2;
-                                if (jogo[lp][cp].equals(" ") && jogo[8 - lp][8 - cp].equals(" ")) {
-                                    lIA = lp;
-                                    cIA = cp;
-                                    acabou = true;
-                                }
+
+//                            if ((l == 1 || l == 3) && (c == 1 || c == 3)) {
+//                                lIA = converssao((l + primeiraJogadaJogador[0]) / 2);
+//                                cIA = converssao((c + primeiraJogadaJogador[1]) / 2);
+//                            } else {
+                            if (!(l + primeiraJogadaJogador[0] == 4 && c + primeiraJogadaJogador[1] == 4)) {
+                                if (l + c == 3 || l + c == 5) {
+                                    if (l == 1 && c == 2) {
+                                        if (jogo[converssao(l)][converssao(c + 1)].equals("X")) {
+                                            lIA = converssao(l);
+                                            cIA = converssao(c - 1);
+                                            nada = false;
+                                        }
+                                        if (jogo[converssao(l)][converssao(c - 1)].equals("X")) {
+                                            lIA = converssao(l);
+                                            cIA = converssao(c + 1);
+                                            nada = false;
+                                        }
+                                    }
+                                    if (l == 2 && c == 3) {
+                                        if (jogo[converssao(l + 1)][converssao(c)].equals("X")) {
+                                            lIA = converssao(l - 1);
+                                            cIA = converssao(c);
+                                            nada = false;
+                                        }
+                                        if (jogo[converssao(l - 1)][converssao(c)].equals("X")) {
+                                            lIA = converssao(l + 1);
+                                            cIA = converssao(c);
+                                            nada = false;
+                                        }
+                                    }
+                                    if (l == 3 && c == 2) {
+                                        if (jogo[converssao(l)][converssao(c + 1)].equals("X")) {
+                                            lIA = converssao(l);
+                                            cIA = converssao(c - 1);
+                                            nada = false;
+                                        }
+                                        if (jogo[converssao(l)][converssao(c - 1)].equals("X")) {
+                                            lIA = converssao(l);
+                                            cIA = converssao(c + 1);
+                                            nada = false;
+                                        }
+                                    }
+                                    if (l == 2 && c == 1) {
+                                        if (jogo[converssao(l + 1)][converssao(c)].equals("X")) {
+                                            lIA = converssao(l - 1);
+                                            cIA = converssao(c);
+                                            nada = false;
+                                        }
+                                        if (jogo[converssao(l - 1)][converssao(c)].equals("X")) {
+                                            lIA = converssao(l + 1);
+                                            cIA = converssao(c);
+                                            nada = false;
+                                        }
+                                    } // Aqui
+                                } 
+                                    if (nada) {
+                                        if ((l == 1 || l == 3) && (c == 1 || c == 3)) {
+                                            lIA = converssao((l + primeiraJogadaJogador[0]) / 2);
+                                            cIA = converssao((c + primeiraJogadaJogador[1]) / 2);
+
+                                        } else {
+                                            if (jogo[converssao(l)][converssao(primeiraJogadaJogador[1])].equals(" ")) {
+
+                                                // OBS: É POSSIVEL AINDA DUAS JOGAS DIFERENTES AQUI REFERENTE AOS CANTOS.
+                                                lIA = converssao(l);
+                                                cIA = converssao(primeiraJogadaJogador[1]);
+                                            } else {
+                                                if (jogo[converssao(primeiraJogadaJogador[0])][converssao(c)].equals(" ")) {
+
+                                                    // OBS: É POSSIVEL AINDA DUAS JOGAS DIFERENTES AQUI REFERENTE AOS CANTOS.
+                                                    lIA = converssao(primeiraJogadaJogador[0]);
+                                                    cIA = converssao(c);
+                                                } else {
+                                                    boolean acabou = false;
+                                                    int lp;
+                                                    int cp;
+                                                    while (!acabou) {
+                                                        lp = (int) (Math.random() * 5) + 2;
+                                                        cp = (int) (Math.random() * 5) + 2;
+                                                        if (jogo[lp][cp].equals(" ") && jogo[8 - lp][8 - cp].equals(" ")) {
+                                                            lIA = lp;
+                                                            cIA = cp;
+                                                            acabou = true;
+                                                        }
+                                                    }
+                                                }
+
+                                            }
+
+                                        }
+                                    }
+                                
                             }
-                        } else {
-                            if ((l == 1 || l == 3) && (c == 1 || c == 3)) {
-                                lIA = converssao((l + primeiraJogadaJogador[0]) / 2);
-                                cIA = converssao((c + primeiraJogadaJogador[1]) / 2);
-                            } else {
-                                if (jogo[converssao(l)][converssao(primeiraJogadaJogador[1])].equals(" ")) {
-                                    lIA = converssao(l);
-                                    cIA = converssao(primeiraJogadaJogador[1]);
-                                } else {
-                                    lIA = converssao(primeiraJogadaJogador[0]);
-                                    cIA = converssao(c);
-                                }
-                            }
+//                            if ((l == 1 || l == 3) && (c == 1 || c == 3)) {
+//                                lIA = converssao((l + primeiraJogadaJogador[0]) / 2);
+//                                cIA = converssao((c + primeiraJogadaJogador[1]) / 2);
+//                            } else {
+//                                if (jogo[converssao(l)][converssao(primeiraJogadaJogador[1])].equals(" ")) {
+//                                    lIA = converssao(l);
+//                                    cIA = converssao(primeiraJogadaJogador[1]);
+//                                } else {
+//                                    lIA = converssao(primeiraJogadaJogador[0]);
+//                                    cIA = converssao(c);
+//                                }
+                            //}
+
                         }
                     }
-                    jogo[lIA][cIA] = "O";
-                }
-                // Armazenar as Linhas
-                segundaJogadaJogador[0] = l;
-                segundaJogadaIA[0] = desConverssao(lIA);
-                // Armazenar Colunas
-                segundaJogadaJogador[1] = c;
-                segundaJogadaIA[1] = desConverssao(cIA);
+                        jogo[lIA][cIA] = "O";
+                    }
+                    // Armazenar as Linhas
+                    segundaJogadaJogador[0] = l;
+                    segundaJogadaIA[0] = desConverssao(lIA);
+                    // Armazenar Colunas
+                    segundaJogadaJogador[1] = c;
+                    segundaJogadaIA[1] = desConverssao(cIA);
 
-                area51();
-                numeroDaJogada++;
+                    area51();
+                    numeroDaJogada++;
 
-                break;
+                    break;
 
-            // Terceira jogada    
-            case 2:
+                    // Terceira jogada    
+                
+                case 2:
 
                 break;
 
@@ -409,7 +495,7 @@ public class inicio {
                 break;
         }
         imprime(jogo);
-    }
+        }
 
     public int converssao(int converte) {
         switch (converte) {
