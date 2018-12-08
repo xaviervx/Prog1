@@ -12,7 +12,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
-import java.util.Scanner;
 
 /**
  *
@@ -46,7 +45,7 @@ public class BingoPronto {
         BufferedReader lt = new BufferedReader(new InputStreamReader(System.in));
 
         verificaAcerto(sorteiNum());
-        System.out.println("Cuntinuar...");
+        System.out.println("Continuar...");
         if (!(lt.readLine().equals(""))) {
             System.exit(0);
         }
