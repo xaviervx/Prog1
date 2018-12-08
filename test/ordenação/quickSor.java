@@ -17,7 +17,7 @@ public class quickSor {
     
     public static void main(String[] args) throws IOException {
 
-        int quantidade = 100000000;
+        int quantidade = 10000000;
         int[] vetor = new int[quantidade];
 
         for (int i = 0; i < vetor.length; i++) {

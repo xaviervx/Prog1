@@ -19,11 +19,11 @@ public class bubleSor {
 
         long tempoInicial = System.currentTimeMillis();
 
-        int quan = 25;
+        int quan = 10000;
         int[] vetor = new int[quan];
 
         for (int i = 0; i < vetor.length; i++) {
-            vetor[i] = (int) (Math.random() * 100);
+            vetor[i] = (int) (Math.random() * quan);
         }
         
         imprime(vetor);
@@ -31,8 +31,8 @@ public class bubleSor {
         System.out.println("");
         System.out.println("");
         imprime(vetor);
-        System.out.println("");
-        transforma(vetor, quan);
+//        System.out.println("");
+//        transforma(vetor, quan);
         
         long tempoFinal = System.currentTimeMillis();
         System.out.println("");
